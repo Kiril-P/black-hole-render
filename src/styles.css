@@ -1,0 +1,219 @@
+:root {
+  color-scheme: dark;
+  background: #010104;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(34, 28, 44, 0.45), transparent 34rem),
+    #010104;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  image-rendering: auto;
+}
+
+.viewer-controls {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: center;
+  gap: 8px 10px;
+  width: min(420px, calc(100vw - 28px));
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: rgba(8, 9, 13, 0.72);
+  box-shadow: 0 16px 46px rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(14px);
+}
+
+.viewer-title {
+  color: #f2f6ff;
+  font: 700 12px/1 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  white-space: nowrap;
+}
+
+.viewer-controls select,
+.viewer-controls button {
+  min-width: 72px;
+  min-height: 32px;
+  border: 0;
+  border-radius: 5px;
+  color: #f2f6ff;
+  background: rgba(39, 42, 52, 0.92);
+  font: 600 12px/1 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  letter-spacing: 0;
+  cursor: pointer;
+}
+
+.viewer-controls select {
+  min-width: 128px;
+  padding: 0 8px;
+}
+
+.viewer-controls button:hover,
+.viewer-controls select:hover {
+  background: rgba(56, 61, 74, 0.98);
+}
+
+.toggle-control {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 32px;
+  color: #dce7ff;
+  font: 600 12px/1 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  white-space: nowrap;
+}
+
+.toggle-control input {
+  accent-color: #ffb86b;
+}
+
+.viewer-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.viewer-controls .primary-action {
+  background: rgba(151, 80, 30, 0.94);
+}
+
+.render-fallback {
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  color: #f2f6ff;
+  text-align: center;
+  font: 600 15px/1.5 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+.lil-gui.root {
+  --background-color: rgba(8, 9, 13, 0.72);
+  --title-background-color: rgba(15, 16, 22, 0.86);
+  --widget-color: rgba(39, 42, 52, 0.88);
+  --hover-color: rgba(56, 61, 74, 0.94);
+  --focus-color: rgba(79, 87, 105, 0.96);
+  --number-color: #ffb86b;
+  --string-color: #cfe4ff;
+  --font-size: 12px;
+  --input-font-size: 12px;
+  --font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  width: min(300px, calc(100vw - 28px)) !important;
+  max-height: calc(100vh - 28px);
+  overflow: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(14px);
+}
+
+.lil-gui.root .title {
+  letter-spacing: 0;
+}
+
+.lil-gui.root .controller > .name {
+  flex: 0 0 var(--name-width);
+  min-width: 0;
+}
+
+.lil-gui.root .controller .widget {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.lil-gui.root .controller.number.hasSlider input {
+  flex: 0 0 var(--slider-input-width);
+}
+
+.lil-gui.root .controller.number.hasSlider .slider {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: auto;
+}
+
+.lil-gui.root button,
+.lil-gui.root input {
+  min-height: 24px;
+}
+
+@media (max-width: 680px) {
+  .lil-gui.root {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    width: auto !important;
+    max-height: 30vh;
+    --name-width: 31%;
+    --slider-input-width: 42px;
+    --slider-input-min-width: 36px;
+    --padding: 4px;
+    --spacing: 4px;
+    --widget-height: 22px;
+    --font-size: 11px;
+    --input-font-size: 11px;
+  }
+
+  .viewer-controls {
+    right: 8px;
+    left: 8px;
+    bottom: 8px;
+    width: auto;
+    grid-template-columns: 1fr auto;
+    gap: 7px;
+  }
+
+  .viewer-title {
+    grid-column: 1 / -1;
+  }
+
+  .viewer-controls select {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .viewer-actions {
+    grid-column: 1 / -1;
+  }
+
+  .viewer-controls button {
+    min-width: 66px;
+    min-height: 30px;
+  }
+}

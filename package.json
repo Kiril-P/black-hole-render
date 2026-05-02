@@ -1,0 +1,22 @@
+{
+  "name": "low-poly-black-hole",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "test:smoke": "playwright test",
+    "check": "bun run build && bun run test:smoke"
+  },
+  "dependencies": {
+    "lil-gui": "^0.20.0",
+    "three": "^0.165.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "pngjs": "^7.0.0",
+    "vite": "^5.3.1"
+  }
+}
