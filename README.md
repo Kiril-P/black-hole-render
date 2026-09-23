@@ -1,38 +1,31 @@
 # Black Hole Render
 
-A cinematic, procedural Three.js black hole render with adaptive quality profiles for desktop and mobile. The scene uses layered shader geometry, screen-space lensing, bloom, particles, orbiting bodies, and a compact viewer control surface.
+![Black Hole Render gameplay](docs/media/14-black-hole-render.gif)
 
-## Run
+Orbit a luminous accretion disk and explore a black hole through cinematic shader effects.
+
+**[Project page](https://kpetrovski.me/projects/black-hole-render/)** · Run the interactive viewer locally with the commands below.
+
+![Black Hole Render: 01](docs/media/14-black-hole-render-01.png)
+
+![Black Hole Render: 02](docs/media/14-black-hole-render-02.png)
+
+## How to play
+
+- **Drag** to orbit the camera and **scroll** to zoom.
+- Choose **Minimal**, **Cinematic**, or **High Energy**.
+- Toggle **Clean** to disable the pixel/posterization pass.
+- **Reset** restores framing; **Export** saves a PNG.
+
+The capture uses the Cinematic preset. This is an artistic real-time visualization, not a scientific ray-tracing claim.
+
+## Development
+
+JavaScript, Three.js, GLSL, Vite.
 
 ```sh
 bun install
 bun run dev
 ```
 
-Open the local Vite URL, usually `http://127.0.0.1:5173/`.
-
-## Build And Verify
-
-```sh
-bun run build
-bun run test:smoke
-```
-
-`bun run check` runs both build and smoke tests.
-
-## Controls
-
-- Preset: switch between Minimal, Cinematic, and High Energy looks.
-- Clean: disables the pixel/posterization pass for higher-fidelity stills.
-- Reset: returns the camera and animation framing to the cinematic default.
-- Export: saves the current viewport as a PNG using asynchronous canvas export.
-
-Add `?debug=1` to the URL to lazy-load the detailed shader control panel.
-
-## Quality Targets
-
-- Desktop cinematic: full-resolution quality capped at `devicePixelRatio <= 2`.
-- Mobile cinematic: reduced geometry and particles, capped at `devicePixelRatio <= 1.35`.
-- Performance mobile: lower geometry, particles, and postprocessing for high-density narrow screens.
-
-The app pauses rendering when the page is hidden, observes container resizes, and shows a WebGL fallback if hardware acceleration is unavailable.
+[Development, verification, and deployment notes](DEVELOPMENT.md).
