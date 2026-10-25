@@ -4,7 +4,7 @@
 
 Orbit a luminous accretion disk and explore a black hole through cinematic shader effects.
 
-**[Project page](https://kpetrovski.me/projects/black-hole-render/)** · Run the interactive viewer locally with the commands below.
+**[Project page](https://kirilpetrovski.com/projects/black-hole-render/)** · Run the interactive viewer locally with the commands below.
 
 ![Black Hole Render: 01](docs/media/14-black-hole-render-01.png)
 
